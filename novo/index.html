@@ -20,6 +20,8 @@
 <meta name="apple-itunes-app" content="app-id=6828948510">
 <link rel="preload" href="../fonts/cormorant-garamond-latin-500-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="../fonts/source-serif-4-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../img/app/captura-1.webp" as="image" fetchpriority="high">
+<link rel="preload" href="../img/gravuras/schnorr-195.webp" as="image">
 <style>
 @font-face{font-family:"Cormorant";src:url(../fonts/cormorant-garamond-latin-500-normal.woff2) format("woff2");font-weight:500;font-display:swap}
 @font-face{font-family:"Cormorant";src:url(../fonts/cormorant-garamond-latin-600-normal.woff2) format("woff2");font-weight:600;font-display:swap}
@@ -28,20 +30,26 @@
 @font-face{font-family:"Source Serif";src:url(../fonts/source-serif-4-latin-400-italic.woff2) format("woff2");font-weight:400;font-style:italic;font-display:swap}
 @font-face{font-family:"Source Serif";src:url(../fonts/source-serif-4-latin-600-normal.woff2) format("woff2");font-weight:600;font-display:swap}
 
+@property --ambar{syntax:'<color>';inherits:true;initial-value:#ECBA70}
+@property --ouro{syntax:'<color>';inherits:true;initial-value:#F6D6A0}
+@property --lit{syntax:'<color>';inherits:true;initial-value:#4E7A47}
 :root{
   --sombra:#120D09; --madeira:#1C150F; --nicho:#2E2218;
   --creme:#F1E6D3; --pergaminho:#B3A28A; --cinza:#7F6F5C;
   --ambar:#ECBA70; --ouro:#F6D6A0; --chama:#E8822A;
-  --fio:rgba(236,186,112,.16); --fio2:rgba(236,186,112,.28);
+  --fio:color-mix(in srgb,var(--ambar) 16%,transparent); --fio2:color-mix(in srgb,var(--ambar) 28%,transparent);
   --lit:#4E7A47;
   --f-t:"Cormorant",Georgia,serif; --f-c:"Source Serif",Georgia,serif;
   --w:1180px; --pad:clamp(20px,5vw,48px);
   --ease:cubic-bezier(.2,.7,.2,1);
+  transition:--ambar 1s ease,--ouro 1s ease,--lit 1s ease;
 }
 *,*::before,*::after{box-sizing:border-box}
 html{overflow-x:clip;scroll-behavior:smooth;-webkit-text-size-adjust:100%;scroll-padding-top:76px}
 body{margin:0;background:var(--sombra);color:var(--creme);font-family:var(--f-c);font-size:clamp(17px,1.05vw + 12px,19px);line-height:1.62;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;overflow-x:hidden}
 body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:90;opacity:.06;mix-blend-mode:overlay;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+.tinta{position:fixed;inset:0;pointer-events:none;z-index:80;background:radial-gradient(ellipse 90% 70% at 50% 35%,var(--lit),transparent 75%);mix-blend-mode:soft-light;opacity:0;transition:opacity 1.2s ease}
+.tinta.on{opacity:1}
 img,svg,video{display:block;max-width:100%}
 a{color:var(--ambar);text-decoration-thickness:1px;text-underline-offset:3px}
 a:hover{color:var(--ouro)}
@@ -64,7 +72,7 @@ section{position:relative}
 
 /* Gravura âmbar que se dissolve no fundo */
 .grav{position:relative;aspect-ratio:var(--ar,4/3);-webkit-mask-image:radial-gradient(ellipse 50% 50% at 50% 50%,#000 38%,transparent 100%);mask-image:radial-gradient(ellipse 50% 50% at 50% 50%,#000 38%,transparent 100%)}
-.grav::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse 70% 65% at var(--lx,50%) var(--ly,42%),#C99558 0%,#8A5D30 42%,#3A2716 82%);transition:background .9s var(--ease)}
+.grav::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse 70% 65% at var(--lx,50%) var(--ly,42%),color-mix(in srgb,#C99558 62%,var(--ambar)) 0%,color-mix(in srgb,#8A5D30 70%,var(--ambar)) 42%,#3A2716 82%);transition:background .9s var(--ease)}
 .grav::after{content:"";position:absolute;inset:0;background:#1E130A;opacity:.92;-webkit-mask:var(--img) var(--pos,center)/cover no-repeat;mask:var(--img) var(--pos,center)/cover no-repeat}
 
 /* Botões das lojas */
@@ -74,7 +82,7 @@ section{position:relative}
 .loja span{display:flex;flex-direction:column;line-height:1.1}
 .loja small{font-size:12px;color:var(--pergaminho);letter-spacing:.02em}
 .loja strong{font-family:var(--f-c);font-weight:600;font-size:19px;letter-spacing:-.01em}
-.loja.ios{border-color:rgba(236,186,112,.55);box-shadow:0 0 0 0 rgba(236,186,112,0),0 10px 40px -12px rgba(232,130,42,.45)}
+.loja.ios{border-color:color-mix(in srgb,var(--ambar) 55%,transparent);box-shadow:0 0 0 0 rgba(236,186,112,0),0 10px 40px -12px rgba(232,130,42,.45)}
 .loja.ios:hover{transform:translateY(-2px);border-color:var(--ambar);color:var(--creme);box-shadow:0 14px 50px -10px rgba(232,130,42,.6)}
 .loja.breve{opacity:.62;cursor:default}
 .loja.breve strong{font-size:17px}
@@ -93,6 +101,8 @@ section{position:relative}
 .nav{display:flex;gap:28px;margin-left:auto}
 .nav a{color:var(--pergaminho);text-decoration:none;font-size:15.5px;transition:color .2s}
 .nav a:hover,.nav a[aria-current]{color:var(--creme)}
+.nav-baixar{display:none}
+@media (max-width:620px){.nav .nav-baixar{display:block;color:var(--ambar)}}
 .hdr .btn{margin-left:8px}
 .burger{display:none;margin-left:auto;width:44px;height:44px;border-radius:12px;background:transparent;border:1px solid var(--fio);color:var(--creme);cursor:pointer}
 .burger svg{width:22px;height:22px;margin:auto;stroke:currentColor;fill:none;stroke-width:1.6;stroke-linecap:round}
@@ -103,7 +113,7 @@ section{position:relative}
 .hoje{display:inline-flex;align-items:center;gap:10px;font-size:14.5px;color:var(--pergaminho);margin-bottom:26px}
 .hoje i{width:9px;height:9px;border-radius:50%;background:var(--lit);box-shadow:0 0 0 3px color-mix(in srgb,var(--lit) 30%,transparent);transition:background .6s}
 .hero h1{font-size:clamp(3.1rem,7.2vw,6.4rem);line-height:1.04;font-weight:500}
-.hero h1 span{display:block;font-style:italic;color:var(--ouro);text-shadow:0 0 40px rgba(236,186,112,.35)}
+.hero h1 span{display:block;font-style:italic;color:var(--ouro);text-shadow:0 0 40px color-mix(in srgb,var(--ambar) 35%,transparent)}
 .hero .lead{font-size:clamp(1.1rem,.8vw + .9rem,1.3rem);margin-top:26px;max-width:30em;color:#C9B89E}
 .hero .lojas{margin-top:36px}
 .hero-nota{margin-top:18px;font-size:14.5px;color:var(--cinza)}
@@ -113,20 +123,20 @@ section{position:relative}
 .arco svg{width:100%;height:100%;overflow:visible}
 .arco .gr{position:absolute;inset:4% -6% 2%;--ar:auto}
 .arco .gr .grav{position:absolute;inset:0;aspect-ratio:auto;--ly:38%;opacity:.75}
-.fone{position:absolute;width:43%;left:50%;bottom:0;transform:translateX(-50%);border-radius:30px;padding:7px;background:linear-gradient(160deg,#3A2B1E,#140E09);box-shadow:0 0 0 1px rgba(236,186,112,.35),0 30px 80px -20px rgba(0,0,0,.8),0 0 70px -10px rgba(232,130,42,.4)}
+.fone{position:absolute;width:43%;left:50%;bottom:0;transform:translateX(-50%);border-radius:30px;padding:7px;background:linear-gradient(160deg,#3A2B1E,#140E09);box-shadow:0 0 0 1px color-mix(in srgb,var(--ambar) 35%,transparent),0 30px 80px -20px rgba(0,0,0,.8),0 0 70px -10px rgba(232,130,42,.4)}
 .fone img{border-radius:24px;width:100%;height:auto;background:#1a130d}
 .brasa{position:absolute;width:3px;height:3px;border-radius:50%;background:#FFC46B;box-shadow:0 0 6px 2px rgba(255,170,80,.6);opacity:0;animation:sobe 9s linear infinite}
 @keyframes sobe{0%{opacity:0;transform:translate(0,0)}15%{opacity:.7}100%{opacity:0;transform:translate(var(--dx,10px),-260px)}}
 
 /* Acender: o momento de abertura */
-.acende .arco-linha{stroke-dasharray:1400;stroke-dashoffset:1400;animation:traca 2.4s .25s var(--ease) forwards}
-.acende .arco-brilho{opacity:0;animation:luz 2s 1.6s ease forwards}
-.acende .gr{opacity:0;animation:luz 2.4s 1.1s ease forwards}
-.acende .fone{opacity:0;transform:translate(-50%,24px);animation:fone 1.4s 1.5s var(--ease) forwards}
+.santuario{opacity:0;transform:translateY(22px) scale(.97);transition:opacity 1.8s var(--ease),transform 2.2s var(--ease);will-change:opacity,transform}
+.santuario .aura{position:absolute;left:50%;top:46%;width:90%;aspect-ratio:1;border-radius:50%;background:radial-gradient(circle,rgba(232,130,42,.32),transparent 62%);transform:translate(-50%,-50%) scale(.55);opacity:0;transition:transform 2.6s var(--ease) .2s,opacity 2.2s ease .2s;will-change:transform,opacity}
+.santuario .fone{opacity:0;transform:translate(-50%,18px);transition:opacity 1.4s ease .45s,transform 1.8s var(--ease) .45s;will-change:opacity,transform}
+.pronto .santuario{opacity:1;transform:none}
+.pronto .santuario .fone{opacity:1;transform:translateX(-50%)}
+.pronto .santuario .aura{opacity:1;transform:translate(-50%,-50%) scale(1)}
+.santuario .arco,.santuario .gr{transform:translateZ(0)}
 .acende .h-in{opacity:0;transform:translateY(14px);animation:fone2 1.1s var(--d,0s) var(--ease) forwards}
-@keyframes traca{to{stroke-dashoffset:0}}
-@keyframes luz{to{opacity:1}}
-@keyframes fone{to{opacity:1;transform:translate(-50%,0)}}
 @keyframes fone2{to{opacity:1;transform:none}}
 .desce{position:absolute;left:50%;bottom:22px;transform:translateX(-50%);color:var(--cinza);font-size:13px;text-decoration:none;display:flex;flex-direction:column;align-items:center;gap:6px}
 .desce::after{content:"";width:1px;height:34px;background:linear-gradient(var(--ambar),transparent);animation:pulso 2.6s ease-in-out infinite}
@@ -156,7 +166,7 @@ section{position:relative}
 .chips{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin-top:18px}
 .chip{min-height:42px;padding:8px 16px;border-radius:999px;border:1px solid var(--fio2);background:transparent;color:var(--creme);font:15px var(--f-c);cursor:pointer;transition:all .3s}
 .chip:hover{border-color:var(--ambar)}
-.chip[aria-pressed=true]{background:rgba(236,186,112,.16);border-color:var(--ambar);color:var(--ouro)}
+.chip[aria-pressed=true]{background:color-mix(in srgb,var(--ambar) 16%,transparent);border-color:var(--ambar);color:var(--ouro)}
 .chip[aria-pressed=true]::before{content:"✓ ";}
 .flama{transform-origin:50px 100px;animation:treme 3.2s ease-in-out infinite}
 @keyframes treme{0%,100%{transform:scale(1,1) skewX(0)}30%{transform:scale(.97,1.03) skewX(-1.5deg)}60%{transform:scale(1.02,.98) skewX(1deg)}}
@@ -233,10 +243,10 @@ section{position:relative}
 
 /* Lume+ */
 .plus{background:radial-gradient(ellipse 60% 50% at 50% 0%,#2C2016,var(--sombra) 70%)}
-.aviso{display:flex;gap:14px;align-items:center;justify-content:center;flex-wrap:wrap;margin:30px auto 0;padding:14px 22px;border-radius:999px;border:1px solid rgba(236,186,112,.4);background:rgba(236,186,112,.08);width:fit-content;max-width:100%;font-size:15.5px;color:var(--ouro);text-align:center}
+.aviso{display:flex;gap:14px;align-items:center;justify-content:center;flex-wrap:wrap;margin:30px auto 0;padding:14px 22px;border-radius:999px;border:1px solid color-mix(in srgb,var(--ambar) 40%,transparent);background:color-mix(in srgb,var(--ambar) 8%,transparent);width:fit-content;max-width:100%;font-size:15.5px;color:var(--ouro);text-align:center}
 .plus-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(18px,2vw,28px);margin-top:clamp(40px,5vw,60px);align-items:stretch}
 .caixa{border-radius:24px;border:1px solid var(--fio);background:#1A130D;padding:clamp(26px,3vw,40px)}
-.caixa.dourada{border-color:rgba(236,186,112,.45);background:radial-gradient(ellipse 90% 60% at 50% 0%,#3A2A1A,#1C140E 70%);box-shadow:0 30px 80px -40px rgba(232,130,42,.5)}
+.caixa.dourada{border-color:color-mix(in srgb,var(--ambar) 45%,transparent);background:radial-gradient(ellipse 90% 60% at 50% 0%,#3A2A1A,#1C140E 70%);box-shadow:0 30px 80px -40px rgba(232,130,42,.5)}
 .caixa h3{font-size:2rem}
 .caixa>p{color:var(--pergaminho);margin-top:6px;font-size:16px}
 .lista{list-style:none;margin:22px 0 0;padding:0;display:grid;gap:12px}
@@ -245,7 +255,7 @@ section{position:relative}
 .lista li b{color:var(--creme);font-weight:600}
 .precos{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:28px}
 .preco{border-radius:16px;border:1px solid var(--fio2);padding:16px 18px;position:relative}
-.preco.melhor{border-color:var(--ambar);background:rgba(236,186,112,.07)}
+.preco.melhor{border-color:var(--ambar);background:color-mix(in srgb,var(--ambar) 7%,transparent)}
 .preco small{display:block;font-size:13.5px;color:var(--pergaminho)}
 .preco strong{display:block;font-family:var(--f-t);font-weight:600;font-size:1.9rem;line-height:1.1;margin-top:2px}
 .preco strong em{font-style:normal;font-family:var(--f-c);font-weight:400;font-size:14px;color:var(--pergaminho)}
@@ -284,6 +294,37 @@ footer a:hover{color:var(--ouro)}
 .redes svg{width:18px;height:18px;fill:currentColor}
 .copy{margin-top:40px;font-size:13.5px;color:var(--cinza)}
 
+.janela{width:min(440px,calc(100% - 32px));max-width:none;max-height:calc(100% - 32px);padding:0;border:1px solid var(--fio2);border-radius:28px;background:radial-gradient(ellipse 90% 55% at 50% 0%,#3A2A1A,#1A130D 70%);color:var(--creme);box-shadow:0 40px 120px -20px rgba(0,0,0,.9),0 0 90px -30px rgba(232,130,42,.5);overflow:auto;opacity:0;transform:translateY(18px) scale(.97);transition:opacity .45s var(--ease),transform .5s var(--ease),overlay .5s allow-discrete,display .5s allow-discrete}
+.janela[open]{opacity:1;transform:none}
+@starting-style{.janela[open]{opacity:0;transform:translateY(18px) scale(.97)}}
+.janela::backdrop{background:rgba(10,7,5,.6);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);opacity:0;transition:opacity .45s ease,overlay .5s allow-discrete,display .5s allow-discrete}
+.janela[open]::backdrop{opacity:1}
+@starting-style{.janela[open]::backdrop{opacity:0}}
+.janela-in{position:relative;padding:44px 32px 30px;text-align:center}
+.janela .fechar{position:absolute;top:14px;right:14px;width:40px;height:40px;border-radius:50%;border:1px solid var(--fio);background:transparent;color:var(--pergaminho);cursor:pointer;display:grid;place-items:center}
+.janela .fechar:hover{color:var(--creme);border-color:var(--fio2)}
+.janela .fechar svg{width:18px;height:18px;stroke:currentColor;stroke-width:1.6;fill:none;stroke-linecap:round}
+.janela .icone{width:76px;height:76px;margin:0 auto 18px;border-radius:20px;box-shadow:0 0 0 1px var(--fio2),0 12px 40px -8px rgba(232,130,42,.55)}
+.janela h2{font-size:2.3rem}
+.janela h2 span{font-style:italic;color:var(--ouro)}
+.janela>div>p{color:var(--pergaminho);font-size:16px;margin-top:8px}
+.janela .lojas{flex-direction:column;align-items:stretch;margin-top:26px}
+.janela .loja{width:100%;justify-content:flex-start;text-align:left}
+.janela .loja .seta{margin-left:auto;width:18px;height:18px;stroke:var(--ambar);fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.janela .qr-m{display:flex;align-items:center;gap:16px;margin-top:22px;padding-top:22px;border-top:1px solid var(--fio);text-align:left}
+.janela .qr-m img{width:84px;height:84px;background:var(--ouro);padding:7px;border-radius:10px;flex:none}
+.janela .qr-m p{font-size:14.5px;color:var(--pergaminho)}
+.janela .qr-m b{display:block;color:var(--creme);font-weight:600;font-size:15px}
+.janela small.fim{display:block;margin-top:20px;font-size:13.5px;color:var(--cinza)}
+@media (max-width:620px){
+  .janela{width:100%;max-height:92svh;margin:auto 0 0;border-radius:28px 28px 0 0;border-bottom:0;transform:translateY(100%)}
+  .janela[open]{transform:none}
+  @starting-style{.janela[open]{transform:translateY(100%)}}
+  .janela-in{padding:40px 22px calc(26px + env(safe-area-inset-bottom))}
+  .janela-in::before{content:"";position:absolute;top:10px;left:50%;width:40px;height:4px;margin-left:-20px;border-radius:2px;background:var(--fio2)}
+  .janela .qr-m{display:none}
+}
+html.travado{overflow:hidden}
 /* Barra de download no celular */
 .barra{position:fixed;left:12px;right:12px;bottom:calc(12px + env(safe-area-inset-bottom));z-index:60;display:none;align-items:center;gap:12px;padding:10px 10px 10px 14px;border-radius:18px;background:rgba(24,17,12,.92);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border:1px solid var(--fio2);box-shadow:0 18px 50px -10px rgba(0,0,0,.8);transform:translateY(140%);transition:transform .5s var(--ease)}
 .barra.on{transform:none}
@@ -324,7 +365,7 @@ footer a:hover{color:var(--ouro)}
   .aba{border:1px solid var(--fio2);border-radius:999px;padding:10px 18px}
   .aba b{font-size:1.15rem;font-family:var(--f-c);font-weight:400}
   .aba span{display:none}
-  .aba[aria-selected=true]{background:rgba(236,186,112,.14)}
+  .aba[aria-selected=true]{background:color-mix(in srgb,var(--ambar) 14%,transparent)}
   .legenda{text-align:center;color:var(--pergaminho);font-size:16px;max-width:30em;margin:22px auto 0;min-height:3.2em}
   .pontos{display:flex}
   .leve-grid{grid-template-columns:1fr 1fr}
@@ -366,6 +407,7 @@ footer a:hover{color:var(--ouro)}
 </head>
 <body>
 <a class="skip" href="#conteudo">Ir para o conteúdo</a>
+<div class="tinta" id="tinta" aria-hidden="true"></div>
 
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
   <defs>
@@ -392,6 +434,7 @@ footer a:hover{color:var(--ouro)}
       <a href="#app">O app</a>
       <a href="#lumeplus">Lume+</a>
       <a href="#perguntas">Perguntas</a>
+      <a href="#baixar" class="nav-baixar" data-baixar>Baixar o app</a>
     </nav>
     <a class="btn" href="#baixar" data-baixar>Baixar grátis</a>
     <button class="burger" id="burger" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="nav"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 8h16M4 16h16"/></svg></button>
@@ -415,13 +458,15 @@ footer a:hover{color:var(--ouro)}
     </div>
 
     <div class="santuario" aria-hidden="true">
+      <span class="aura"></span>
       <div class="arco">
         <div class="gr"><div class="grav" style="--img:url(../img/gravuras/schnorr-195.webp);--pos:center 30%"></div></div>
         <svg viewBox="0 0 100 124" preserveAspectRatio="none">
           <defs>
-            <filter id="fBrilho" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="2.4"/></filter>
+            
           </defs>
-          <path class="arco-brilho" d="M6 123V52C6 28 24 10 50 1C76 10 94 28 94 52V123" fill="none" stroke="#FFB04A" stroke-width="2.4" filter="url(#fBrilho)" opacity=".8"/>
+          <path class="arco-brilho" d="M6 123V52C6 28 24 10 50 1C76 10 94 28 94 52V123" fill="none" stroke="#FFB04A" stroke-width="7" vector-effect="non-scaling-stroke" opacity=".16" style="stroke-width:14px"/>
+          <path d="M6 123V52C6 28 24 10 50 1C76 10 94 28 94 52V123" fill="none" stroke="#FFB04A" opacity=".28" vector-effect="non-scaling-stroke" style="stroke-width:6px"/>
           <path class="arco-linha" d="M6 123V52C6 28 24 10 50 1C76 10 94 28 94 52V123" fill="none" stroke="url(#gArco)" stroke-width=".7" vector-effect="non-scaling-stroke" style="stroke-width:1.6px"/>
         </svg>
       </div>
@@ -547,13 +592,14 @@ footer a:hover{color:var(--ouro)}
       <article class="peca rv" style="--d:.06s"><div class="grav" style="--img:url(../img/gravuras/durer-388137.webp)"></div><div class="tx"><h3>Novenas</h3><p>Nove dias por uma intenção, sozinho ou com a família e o grupo de oração.</p></div></article>
       <article class="peca rv" style="--d:.12s"><div class="grav" style="--img:url(../img/gravuras/schnorr-194.webp)"></div><div class="tx"><h3>Exame de consciência</h3><p>Para encerrar o dia em paz, e um roteiro pelos Mandamentos para preparar a Confissão.</p></div></article>
       <article class="peca rv" style="--d:.18s"><div class="grav" style="--img:url(../img/gravuras/santo-teresinha.webp);--pos:center 25%"></div><div class="tx"><h3>Livros dos santos</h3><p>Imitação de Cristo, Confissões, História de uma Alma e outros clássicos, um capítulo por vez.</p></div></article>
-      <article class="peca larga cheia rv"><div class="grav" style="--img:url(../img/gravuras/schnorr-166.webp)"></div><div class="tx"><h3>Na cor do tempo litúrgico</h3><p>O Lume segue o calendário da Igreja no Brasil e se veste com a cor de cada dia.</p>
-        <div class="cores" id="cores" role="group" aria-label="Cores litúrgicas">
-          <button class="cor" type="button" style="--c:#4E7A47" data-c="#4E7A47" data-n="Verde: o Tempo Comum, a vida de todo dia vivida com esperança." aria-label="Verde"></button>
-          <button class="cor" type="button" style="--c:#6A4589" data-c="#6A4589" data-n="Roxo: Advento e Quaresma, tempo de preparar o coração." aria-label="Roxo"></button>
-          <button class="cor" type="button" style="--c:#D98BA3" data-c="#D98BA3" data-n="Rosa: a alegria que já desponta no Gaudete e no Laetare." aria-label="Rosa"></button>
-          <button class="cor" type="button" style="--c:#EFE3C4" data-c="#E9D7A6" data-n="Branco: Natal, Páscoa e as festas do Senhor e de Nossa Senhora." aria-label="Branco"></button>
-          <button class="cor" type="button" style="--c:#A83030" data-c="#A83030" data-n="Vermelho: Pentecostes, a Paixão e os mártires." aria-label="Vermelho"></button>
+      <article class="peca larga cheia rv"><div class="grav" style="--img:url(../img/gravuras/schnorr-166.webp)"></div><div class="tx"><h3>Na cor do tempo litúrgico</h3><p>O Lume segue o calendário da Igreja no Brasil e se veste com a cor de cada dia. Toque numa cor e veja esta página fazer o mesmo.</p>
+        <div class="cores" id="cores" role="group" aria-label="Cores do tempo litúrgico">
+          <button class="cor" type="button" style="--c:#ECBA70" data-a="#ECBA70" data-o="#F6D6A0" data-n="A luz âmbar do Lume." aria-label="Âmbar do Lume" aria-pressed="true"></button>
+          <button class="cor" type="button" style="--c:#4E7A47" data-k="verde" data-l="#4E7A47" data-a="#9DC48E" data-o="#D3E8C8" data-n="Verde: o Tempo Comum, a vida de todo dia vivida com esperança." aria-label="Verde"></button>
+          <button class="cor" type="button" style="--c:#6A4589" data-k="roxo" data-l="#6A4589" data-a="#BB9DDC" data-o="#E0D0F2" data-n="Roxo: Advento e Quaresma, tempo de preparar o coração." aria-label="Roxo"></button>
+          <button class="cor" type="button" style="--c:#D98BA3" data-k="rosa" data-l="#D98BA3" data-a="#E9AABD" data-o="#F6D5DF" data-n="Rosa: a alegria que já desponta no Gaudete e no Laetare." aria-label="Rosa"></button>
+          <button class="cor" type="button" style="--c:#F3EBD8" data-k="branco" data-l="#E9D7A6" data-a="#E8DCC0" data-o="#FBF6EA" data-n="Branco: Natal, Páscoa e as festas do Senhor e de Nossa Senhora." aria-label="Branco"></button>
+          <button class="cor" type="button" style="--c:#A83030" data-k="vermelho" data-l="#A83030" data-a="#E8907F" data-o="#F5C6BC" data-n="Vermelho: Pentecostes, a Paixão e os mártires." aria-label="Vermelho"></button>
         </div>
         <p class="cor-nota" id="cor-nota" aria-live="polite"></p></div></article>
     </div>
@@ -692,6 +738,21 @@ footer a:hover{color:var(--ouro)}
   </div>
 </footer>
 
+<dialog class="janela" id="janela" aria-labelledby="j-h">
+  <div class="janela-in">
+    <button class="fechar" type="button" data-fechar aria-label="Fechar"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
+    <img class="icone" src="../apple-touch-icon.png" width="76" height="76" alt="">
+    <h2 id="j-h">Baixe o <span>Lume</span></h2>
+    <p>Grátis, sem cadastro e sem anúncios.</p>
+    <div class="lojas">
+      <a class="loja ios" href="https://apps.apple.com/app/id6828948510?ct=site-janela" data-loja="ios"><svg aria-hidden="true"><use href="#i-apple"/></svg><span><small>Para iPhone e iPad</small><strong>App Store</strong></span><svg class="seta" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
+      <span class="loja breve" data-loja="android" aria-label="Em breve no Google Play"><svg aria-hidden="true"><use href="#i-play"/></svg><span><small>Para Android, em breve</small><strong>Google Play</strong></span></span>
+    </div>
+    <div class="qr-m"><img src="media/qr.svg" width="84" height="84" alt="Código QR para baixar o Lume na App Store"><p><b>Está no computador?</b>Aponte a câmera do iPhone para o código e baixe direto no celular.</p></div>
+    <small class="fim" id="j-android">No Android? Siga <a href="https://instagram.com/lumeappcatolico">@lumeappcatolico</a> para saber assim que chegar.</small>
+  </div>
+</dialog>
+
 <div class="barra" id="barra" aria-hidden="true">
   <img src="../apple-touch-icon.png" alt="" width="40" height="40">
   <p><b>Lume</b>Grátis para iPhone</p>
@@ -724,9 +785,23 @@ footer a:hover{color:var(--ouro)}
   $('#hoje').textContent=innerWidth<620?'Hoje, '+t:'Hoje, '+data+', '+t;
   $('#ano').textContent=y;
 
+  /* Abertura: tudo aparece junto, depois que as imagens estão prontas */
+  (function(){var hero=$('.hero'),feito=false;function vai(){if(feito)return;feito=true;requestAnimationFrame(function(){hero.classList.add('pronto')})}
+    var a=$('.santuario .fone img'),b=new Image();b.src='../img/gravuras/schnorr-195.webp';
+    function pronto(i){return i.decode?i.decode().catch(function(){}):Promise.resolve()}
+    Promise.all([pronto(a),pronto(b)]).then(function(){setTimeout(vai,350)});setTimeout(vai,1800)})();
+
+  /* Janela de download */
+  var PLAY='';/* link do Google Play quando sair */
+  if(PLAY){$$('.loja.breve').forEach(function(e){var l=document.createElement('a');l.className='loja android';l.href=PLAY;l.innerHTML=e.innerHTML.replace(/Em breve no|Para Android, em breve/,function(m){return m==='Em breve no'?'Disponível no':'Para Android'});e.replaceWith(l)});var ja=$('#j-android');if(ja)ja.remove()}
+  var jan=$('#janela');
+  function abrir(e){if(!jan.showModal)return;e.preventDefault();nav.classList.remove('open');bg.setAttribute('aria-expanded','false');document.documentElement.classList.add('travado');jan.showModal()}
+  function fechar(){jan.close()}
+  jan.addEventListener('close',function(){document.documentElement.classList.remove('travado')});
+  jan.addEventListener('click',function(e){if(e.target===jan||e.target.closest('[data-fechar]'))fechar()});
+  $$('[data-baixar]').forEach(function(a){a.addEventListener('click',abrir)});
   /* Lojas: Android ainda não */
   if(android){$$('.loja.breve').forEach(function(e){e.style.opacity='1'});$$('.loja.ios').forEach(function(e){e.style.order='2'})}
-  $$('[data-baixar]').forEach(function(a){if(ios)a.href='https://apps.apple.com/app/id6828948510?ct=site-topo'});
 
   /* Cabeçalho, menu e barra */
   var hdr=$('#hdr'),barra=$('#barra'),heroH=$('.hero').offsetHeight;
@@ -762,8 +837,13 @@ footer a:hover{color:var(--ouro)}
   if(!reduz&&'IntersectionObserver' in window){new IntersectionObserver(function(es){es.forEach(function(e){clearInterval(timer);if(e.isIntersecting)timer=setInterval(function(){if(!mexeu)ir(atual+1)},5500)})},{threshold:.4}).observe(vit)}
 
   /* Cores litúrgicas */
-  var cores=$$('.cor');cores.forEach(function(b){b.setAttribute('aria-pressed',b.dataset.c===c);b.addEventListener('click',function(){cores.forEach(function(x){x.setAttribute('aria-pressed',x===b)});document.documentElement.style.setProperty('--lit',b.dataset.c);$('#cor-nota').textContent=b.dataset.n})});
-
+  var cores=$$('.cor'),raiz=document.documentElement,tinta=$('#tinta'),nota=$('#cor-nota');
+  var nomeHoje={'#4E7A47':'verde','#6A4589':'roxo','#D98BA3':'rosa','#E9D7A6':'branco','#A83030':'vermelho'}[c];
+  nota.textContent='Hoje a Igreja veste '+nomeHoje+'.';
+  cores.forEach(function(b){b.addEventListener('click',function(){cores.forEach(function(x){x.setAttribute('aria-pressed',x===b)});
+    raiz.style.setProperty('--ambar',b.dataset.a);raiz.style.setProperty('--ouro',b.dataset.o);
+    if(b.dataset.l){raiz.style.setProperty('--lit',b.dataset.l);tinta.classList.add('on')}else{raiz.style.setProperty('--lit',c);tinta.classList.remove('on')}
+    nota.textContent=b.dataset.n+(b.dataset.k===nomeHoje?' É a cor de hoje.':'')})});
   /* Santos */
   var S=[['agostinho','Santo Agostinho'],['teresinha','Santa Teresinha'],['francisco_assis','São Francisco de Assis'],['sao_jose','São José'],['teresa_avila',"Santa Teresa d'Ávila"],['joao_paulo_ii','São João Paulo II'],['catarina_de_sena','Santa Catarina de Sena'],['tomas_de_aquino','São Tomás de Aquino'],['clara','Santa Clara'],['bento','São Bento'],['josefina_bakhita','Santa Josefina Bakhita'],['inacio_de_loyola','Santo Inácio de Loyola'],['pier_giorgio_frassati','São Pier Giorgio Frassati'],['maria_madalena','Santa Maria Madalena'],['joao_da_cruz','São João da Cruz'],['luzia','Santa Luzia'],['francisco_de_sales','São Francisco de Sales'],['sao_pedro','São Pedro'],['domingos','São Domingos'],['ambrosio','Santo Ambrósio']];
   function faixa(lista,cls){var h=lista.concat(lista).map(function(s,i){return '<figure class="santo"'+(i>=lista.length?' aria-hidden="true"':'')+' style="margin:0"><div class="grav" style="--img:url(../img/gravuras/santo-'+s[0]+'.webp);--pos:center 20%"></div><b>'+s[1]+'</b></figure>'}).join('');return '<div class="faixa '+cls+'">'+h+'</div>'}
