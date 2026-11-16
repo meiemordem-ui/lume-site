@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="pt-BR">
+<html lang="pt-BR" class="no-js">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
@@ -21,7 +21,8 @@
 <link rel="preload" href="../fonts/cormorant-garamond-latin-500-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="../fonts/source-serif-4-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="../img/app/captura-1.webp" as="image" fetchpriority="high">
-<link rel="preload" href="../img/gravuras/schnorr-195.webp" as="image">
+<link rel="preload" href="media/g/schnorr-195.webp" as="image">
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "Organization", "@id": "https://lumecatolico.com.br/#org", "name": "Lume", "url": "https://lumecatolico.com.br/", "logo": "https://lumecatolico.com.br/apple-touch-icon.png", "email": "lumeappcatolico@gmail.com", "sameAs": ["https://instagram.com/lumeappcatolico", "https://www.tiktok.com/@lumeappcatolico", "https://apps.apple.com/app/id6828948510"]}, {"@type": "WebSite", "@id": "https://lumecatolico.com.br/#site", "url": "https://lumecatolico.com.br/", "name": "Lume - Regra de Vida Católica", "inLanguage": "pt-BR", "publisher": {"@id": "https://lumecatolico.com.br/#org"}}, {"@type": "MobileApplication", "@id": "https://lumecatolico.com.br/#app", "name": "Lume - Regra de Vida Católica", "operatingSystem": "iOS", "applicationCategory": "LifestyleApplication", "inLanguage": "pt-BR", "url": "https://apps.apple.com/app/id6828948510", "downloadUrl": "https://apps.apple.com/app/id6828948510", "image": "https://lumecatolico.com.br/img/og.jpg", "description": "Aplicativo católico de oração: liturgia diária, Bíblia, Rosário, orações, novenas, exame de consciência e a companhia dos santos, num só lugar. Sem cadastro e sem anúncios.", "publisher": {"@id": "https://lumecatolico.com.br/#org"}, "offers": [{"@type": "Offer", "name": "Lume", "price": "0", "priceCurrency": "BRL"}, {"@type": "Offer", "name": "Lume+ mensal", "price": "16.90", "priceCurrency": "BRL"}, {"@type": "Offer", "name": "Lume+ anual", "price": "119.90", "priceCurrency": "BRL"}]}, {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "O Lume é gratuito?", "acceptedAnswer": {"@type": "Answer", "text": "Sim. Tudo o que você precisa para viver o dia é gratuito: a Palavra, as práticas, o exame, as orações e o Rosário. O Lume+ é opcional."}}, {"@type": "Question", "name": "Preciso criar uma conta?", "acceptedAnswer": {"@type": "Answer", "text": "Não. É só baixar e começar. Suas práticas e seu diário ficam no próprio celular."}}, {"@type": "Question", "name": "Quanto tempo leva por dia?", "acceptedAnswer": {"@type": "Answer", "text": "Você decide. Dá para viver o essencial em poucos minutos, de manhã e à noite, e aprofundar quando tiver mais tempo."}}, {"@type": "Question", "name": "E se eu esquecer alguns dias?", "acceptedAnswer": {"@type": "Answer", "text": "Nada acontece. O Lume nunca mostra uma tela de falha: quando você volta, recebe uma palavra de recomeço."}}, {"@type": "Question", "name": "Funciona sem internet?", "acceptedAnswer": {"@type": "Answer", "text": "Sim. As leituras, as orações e os livros já vêm dentro do app."}}, {"@type": "Question", "name": "Tem para Android?", "acceptedAnswer": {"@type": "Answer", "text": "Está chegando ao Google Play nas próximas semanas. Siga @lumeappcatolico no Instagram para saber assim que sair."}}, {"@type": "Question", "name": "O Lume substitui a missa ou a Confissão?", "acceptedAnswer": {"@type": "Answer", "text": "Não. O Lume é um companheiro para o dia a dia, que ajuda a viver melhor os sacramentos, a vida da paróquia e o acompanhamento espiritual."}}, {"@type": "Question", "name": "Como falo com vocês?", "acceptedAnswer": {"@type": "Answer", "text": "Escreva para lumeappcatolico@gmail.com. Sugestões são muito bem-vindas."}}]}]}</script>
 <style>
 @font-face{font-family:"Cormorant";src:url(../fonts/cormorant-garamond-latin-500-normal.woff2) format("woff2");font-weight:500;font-display:swap}
 @font-face{font-family:"Cormorant";src:url(../fonts/cormorant-garamond-latin-600-normal.woff2) format("woff2");font-weight:600;font-display:swap}
@@ -35,7 +36,7 @@
 @property --lit{syntax:'<color>';inherits:true;initial-value:#4E7A47}
 :root{
   --sombra:#120D09; --madeira:#1C150F; --nicho:#2E2218;
-  --creme:#F1E6D3; --pergaminho:#B3A28A; --cinza:#7F6F5C;
+  --creme:#F1E6D3; --pergaminho:#B3A28A; --cinza:#93826D;
   --ambar:#ECBA70; --ouro:#F6D6A0; --chama:#E8822A;
   --fio:color-mix(in srgb,var(--ambar) 16%,transparent); --fio2:color-mix(in srgb,var(--ambar) 28%,transparent);
   --lit:#4E7A47;
@@ -184,7 +185,7 @@ section{position:relative}
 .app{background:radial-gradient(ellipse 60% 50% at 70% 55%,#2C2016,var(--sombra) 75%)}
 .tour>*{min-width:0}
 .tour{display:grid;grid-template-columns:1fr 1fr;gap:clamp(30px,6vw,90px);align-items:center;margin-top:clamp(36px,5vw,60px)}
-.abas{display:grid;gap:2px;list-style:none;margin:0;padding:0}
+.abas{display:grid;gap:2px}
 .aba{display:block;width:100%;text-align:left;background:transparent;border:0;border-left:2px solid var(--fio);padding:16px 0 16px 22px;color:var(--cinza);cursor:pointer;font:inherit;transition:color .3s,border-color .3s}
 .aba b{display:block;font-family:var(--f-t);font-weight:500;font-size:1.65rem;line-height:1.15;color:inherit;transition:color .3s}
 .aba span{display:block;font-size:16px;color:var(--pergaminho);max-height:0;overflow:hidden;opacity:0;transition:max-height .6s var(--ease),opacity .5s,margin .5s}
@@ -197,9 +198,10 @@ section{position:relative}
 .telas{position:relative;border-radius:24px;overflow:hidden;aspect-ratio:480/1091}
 .telas img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .7s ease}
 .telas img.on{opacity:1}
-.pontos{display:none;justify-content:center;gap:8px;margin-top:22px}
-.pontos button{width:8px;height:8px;border-radius:50%;border:0;padding:0;background:var(--fio2);cursor:pointer;transition:all .3s}
-.pontos button[aria-current=true]{background:var(--ambar);width:24px;border-radius:4px}
+.pontos{display:none;justify-content:center;gap:2px;margin-top:14px}
+.pontos button{width:28px;height:28px;border:0;padding:0;background:transparent;cursor:pointer;display:grid;place-items:center}
+.pontos button::before{content:"";width:8px;height:8px;border-radius:4px;background:var(--fio2);transition:all .3s}
+.pontos button[aria-current=true]::before{background:var(--ambar);width:22px}
 
 /* Tudo num só lugar */
 .tudo-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(14px,1.6vw,22px);margin-top:clamp(40px,5vw,64px)}
@@ -262,6 +264,12 @@ section{position:relative}
 .preco span{display:block;font-size:13.5px;color:var(--ambar);margin-top:4px}
 .letra{font-size:14px;color:var(--cinza);margin-top:18px}
 
+.fatos{display:grid;grid-template-columns:repeat(3,1fr);gap:0 clamp(24px,4vw,56px);margin:clamp(36px,5vw,56px) 0 0}
+.fatos div{padding:20px 0;border-top:1px solid var(--fio)}
+.fatos dt{font-family:var(--f-t);font-style:italic;font-size:1.2rem;color:var(--ambar)}
+.fatos dd{margin:4px 0 0;font-size:16.5px;color:#D9CBB4}
+@media (max-width:900px){.fatos{grid-template-columns:1fr 1fr}}
+@media (max-width:560px){.fatos{grid-template-columns:1fr}}
 /* Perguntas */
 .faq{max-width:780px;margin:clamp(36px,5vw,56px) auto 0}
 .faq details{border-bottom:1px solid var(--fio)}
@@ -285,7 +293,7 @@ section{position:relative}
 
 footer{border-top:1px solid var(--fio);padding:56px 0 calc(40px + env(safe-area-inset-bottom));font-size:15px;color:var(--pergaminho)}
 .rodape{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:36px}
-footer h4{font-family:var(--f-t);font-weight:500;font-size:1.25rem;color:var(--creme);margin:0 0 12px}
+footer .h-rod{font-family:var(--f-t);font-weight:500;font-size:1.25rem;color:var(--creme);margin:0 0 12px}
 footer ul{list-style:none;margin:0;padding:0;display:grid;gap:8px}
 footer a{color:var(--pergaminho);text-decoration:none}
 footer a:hover{color:var(--ouro)}
@@ -361,7 +369,7 @@ html.travado{overflow:hidden}
   .tour{grid-template-columns:1fr}
   .abas{display:flex;overflow-x:auto;gap:8px;scroll-snap-type:x mandatory;padding-bottom:6px;margin-inline:calc(var(--pad) * -1);padding-inline:var(--pad);scrollbar-width:none}
   .abas::-webkit-scrollbar{display:none}
-  .abas li{flex:none;scroll-snap-align:start}
+  .aba{flex:none;scroll-snap-align:start;width:auto}
   .aba{border:1px solid var(--fio2);border-radius:999px;padding:10px 18px}
   .aba b{font-size:1.15rem;font-family:var(--f-c);font-weight:400}
   .aba span{display:none}
@@ -377,6 +385,7 @@ html.travado{overflow:hidden}
 @media (min-width:901px){.legenda{display:none}}
 @media (max-width:620px){
   .hdr .btn{display:none}
+  .burger{margin-left:auto}
   .tudo-grid{grid-template-columns:1fr;gap:12px}
   .peca,.peca.larga,.peca.cheia{grid-column:auto;flex-direction:row;align-items:center}
   .peca .grav,.peca.larga .grav,.peca.cheia .grav{flex:0 0 36%;width:auto;margin:0 -2% 0 -4%;--ar:1/1}
@@ -404,6 +413,7 @@ html.travado{overflow:hidden}
 }
 </style>
 <script>document.documentElement.className='js'</script>
+<noscript><style>.rv,.santuario{opacity:1!important;transform:none!important}.santuario .aura{opacity:1!important;transform:translate(-50%,-50%)!important}.santuario .fone{opacity:1!important;transform:translateX(-50%)!important}.video button{display:none}</style></noscript>
 </head>
 <body>
 <a class="skip" href="#conteudo">Ir para o conteúdo</a>
@@ -433,6 +443,7 @@ html.travado{overflow:hidden}
       <a href="#dia">Um dia</a>
       <a href="#app">O app</a>
       <a href="#lumeplus">Lume+</a>
+      <a href="#sobre">Sobre</a>
       <a href="#perguntas">Perguntas</a>
       <a href="#baixar" class="nav-baixar" data-baixar>Baixar o app</a>
     </nav>
@@ -447,7 +458,7 @@ html.travado{overflow:hidden}
 <section class="hero acende" id="topo" aria-labelledby="h1">
   <div class="wrap hero-grid">
     <div>
-      <p class="hoje h-in" style="--d:.2s"><i></i><span id="hoje">Hoje</span></p>
+      <p class="hoje h-in" style="--d:.2s"><i></i><span id="hoje">Aplicativo católico de oração</span></p>
       <h1 id="h1" class="h-in" style="--d:.35s">Que a sua lâmpada <span>não se apague.</span></h1>
       <p class="lead h-in" style="--d:.55s">Sua vida de oração, leve e inteira, num só lugar. Ofereça o dia pela manhã, ouça a Palavra com os santos e, à noite, entregue tudo a Deus.</p>
       <div class="lojas h-in" id="baixar" style="--d:.75s">
@@ -460,7 +471,7 @@ html.travado{overflow:hidden}
     <div class="santuario" aria-hidden="true">
       <span class="aura"></span>
       <div class="arco">
-        <div class="gr"><div class="grav" style="--img:url(../img/gravuras/schnorr-195.webp);--pos:center 30%"></div></div>
+        <div class="gr"><div class="grav" style="--img:url(media/g/schnorr-195.webp);--pos:center 30%"></div></div>
         <svg viewBox="0 0 100 124" preserveAspectRatio="none">
           <defs>
             
@@ -490,8 +501,9 @@ html.travado{overflow:hidden}
     </div>
     <div class="rv" style="--d:.15s">
       <div class="video" id="video">
-        <img src="media/manifesto-capa.jpg" width="720" height="1280" alt="" loading="lazy">
-        <button type="button" aria-label="Assistir ao vídeo do Lume, 50 segundos"><span class="play"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4.5v15l12-7.5z"/></svg></span><b>Assista ao Lume</b><small>50 segundos, com som</small></button>
+        <img src="media/manifesto-capa.webp" width="720" height="1280" alt="" loading="lazy">
+        <noscript><video controls playsinline preload="none" poster="media/manifesto-capa.webp" style="position:absolute;inset:0"><source src="media/manifesto.webm" type="video/webm"><source src="media/manifesto.mp4" type="video/mp4"></video></noscript>
+        <button type="button"><span class="play"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4.5v15l12-7.5z"/></svg></span><b>Assista ao Lume</b><small>50 segundos, com som</small></button>
       </div>
     </div>
   </div>
@@ -549,13 +561,13 @@ html.travado{overflow:hidden}
     </div>
     <div class="tour">
       <div class="rv">
-        <ul class="abas" role="tablist" aria-label="Telas do app" id="abas">
-          <li><button class="aba" role="tab" aria-selected="true" aria-controls="telas"><b>Hoje</b><span>Tudo o que importa numa tela só: a lâmpada do dia, a cor litúrgica, o santo de hoje e as suas práticas.</span></button></li>
-          <li><button class="aba" role="tab" aria-selected="false" aria-controls="telas" tabindex="-1"><b>A Palavra</b><span>O Evangelho e as leituras da missa, com arte sacra e as palavras de um santo para meditar.</span></button></li>
-          <li><button class="aba" role="tab" aria-selected="false" aria-controls="telas" tabindex="-1"><b>Orações</b><span>Orações para cada hora do dia, o Santo Rosário e as Completas, sempre à mão.</span></button></li>
-          <li><button class="aba" role="tab" aria-selected="false" aria-controls="telas" tabindex="-1"><b>Livros e novenas</b><span>Clássicos dos santos, um capítulo por vez, novenas e caminhos guiados de alguns dias.</span></button></li>
-          <li><button class="aba" role="tab" aria-selected="false" aria-controls="telas" tabindex="-1"><b>Jornada</b><span>Seu caminho visto com misericórdia: o que conta não é a perfeição, é cada recomeço.</span></button></li>
-        </ul>
+        <div class="abas" role="tablist" aria-label="Telas do app" id="abas">
+          <button class="aba" role="tab" aria-selected="true" aria-controls="telas"><b>Hoje</b><span>Tudo o que importa numa tela só: a lâmpada do dia, a cor litúrgica, o santo de hoje e as suas práticas.</span></button>
+          <button class="aba" role="tab" aria-selected="false" aria-controls="telas" tabindex="-1"><b>A Palavra</b><span>O Evangelho e as leituras da missa, com arte sacra e as palavras de um santo para meditar.</span></button>
+          <button class="aba" role="tab" aria-selected="false" aria-controls="telas" tabindex="-1"><b>Orações</b><span>Orações para cada hora do dia, o Santo Rosário e as Completas, sempre à mão.</span></button>
+          <button class="aba" role="tab" aria-selected="false" aria-controls="telas" tabindex="-1"><b>Livros e novenas</b><span>Clássicos dos santos, um capítulo por vez, novenas e caminhos guiados de alguns dias.</span></button>
+          <button class="aba" role="tab" aria-selected="false" aria-controls="telas" tabindex="-1"><b>Jornada</b><span>Seu caminho visto com misericórdia: o que conta não é a perfeição, é cada recomeço.</span></button>
+        </div>
       </div>
       <div class="rv" style="--d:.1s">
         <div class="vitrine" id="vitrine">
@@ -585,14 +597,14 @@ html.travado{overflow:hidden}
       <p class="lead">Sem pular de app em app. A Palavra, a oração e a companhia dos santos, reunidas com calma.</p>
     </div>
     <div class="tudo-grid">
-      <article class="peca larga rv"><div class="grav" style="--img:url(../img/gravuras/schnorr-186.webp)"></div><div class="tx"><h3>A Palavra de cada dia</h3><p>O Evangelho e as leituras da missa, todos os dias, com o salmo em estrofes. E a Bíblia inteira, os 73 livros, para ler quando quiser.</p></div></article>
-      <article class="peca rv" style="--d:.06s"><div class="grav" style="--img:url(../img/gravuras/mellan-392631.webp)"></div><div class="tx"><h3>Ouvir um santo</h3><p>A cada Evangelho, as palavras de um santo que o meditou antes de nós.</p></div></article>
-      <article class="peca rv" style="--d:.12s"><div class="grav" style="--img:url(../img/gravuras/durer-388130.webp)"></div><div class="tx"><h3>O Santo Rosário</h3><p>Os mistérios do dia, conta por conta, com uma imagem para contemplar.</p></div></article>
-      <article class="peca rv"><div class="grav" style="--img:url(../img/gravuras/durer-387435.webp)"></div><div class="tx"><h3>Orações</h3><p>Ao acordar, à mesa, à noite, a Nossa Senhora e ao Espírito Santo. Muitas também em latim.</p></div></article>
-      <article class="peca rv" style="--d:.06s"><div class="grav" style="--img:url(../img/gravuras/durer-388137.webp)"></div><div class="tx"><h3>Novenas</h3><p>Nove dias por uma intenção, sozinho ou com a família e o grupo de oração.</p></div></article>
-      <article class="peca rv" style="--d:.12s"><div class="grav" style="--img:url(../img/gravuras/schnorr-194.webp)"></div><div class="tx"><h3>Exame de consciência</h3><p>Para encerrar o dia em paz, e um roteiro pelos Mandamentos para preparar a Confissão.</p></div></article>
-      <article class="peca rv" style="--d:.18s"><div class="grav" style="--img:url(../img/gravuras/santo-teresinha.webp);--pos:center 25%"></div><div class="tx"><h3>Livros dos santos</h3><p>Imitação de Cristo, Confissões, História de uma Alma e outros clássicos, um capítulo por vez.</p></div></article>
-      <article class="peca larga cheia rv"><div class="grav" style="--img:url(../img/gravuras/schnorr-166.webp)"></div><div class="tx"><h3>Na cor do tempo litúrgico</h3><p>O Lume segue o calendário da Igreja no Brasil e se veste com a cor de cada dia. Toque numa cor e veja esta página fazer o mesmo.</p>
+      <article class="peca larga rv"><div class="grav" data-img="media/g/schnorr-186.webp"></div><div class="tx"><h3>A Palavra de cada dia</h3><p>O Evangelho e as leituras da missa, todos os dias, com o salmo em estrofes. E a Bíblia inteira, os 73 livros, para ler quando quiser.</p></div></article>
+      <article class="peca rv" style="--d:.06s"><div class="grav" data-img="media/g/mellan-392631.webp"></div><div class="tx"><h3>Ouvir um santo</h3><p>A cada Evangelho, as palavras de um santo que o meditou antes de nós.</p></div></article>
+      <article class="peca rv" style="--d:.12s"><div class="grav" data-img="media/g/durer-388130.webp"></div><div class="tx"><h3>O Santo Rosário</h3><p>Os mistérios do dia, conta por conta, com uma imagem para contemplar.</p></div></article>
+      <article class="peca rv"><div class="grav" data-img="media/g/durer-387435.webp"></div><div class="tx"><h3>Orações</h3><p>Ao acordar, à mesa, à noite, a Nossa Senhora e ao Espírito Santo. Muitas também em latim.</p></div></article>
+      <article class="peca rv" style="--d:.06s"><div class="grav" data-img="media/g/durer-388137.webp"></div><div class="tx"><h3>Novenas</h3><p>Nove dias por uma intenção, sozinho ou com a família e o grupo de oração.</p></div></article>
+      <article class="peca rv" style="--d:.12s"><div class="grav" data-img="media/g/schnorr-194.webp"></div><div class="tx"><h3>Exame de consciência</h3><p>Para encerrar o dia em paz, e um roteiro pelos Mandamentos para preparar a Confissão.</p></div></article>
+      <article class="peca rv" style="--d:.18s"><div class="grav" data-img="media/g/santo-teresinha.webp" style="--pos:center 25%"></div><div class="tx"><h3>Livros dos santos</h3><p>Imitação de Cristo, Confissões, História de uma Alma e outros clássicos, um capítulo por vez.</p></div></article>
+      <article class="peca larga cheia rv"><div class="grav" data-img="media/g/schnorr-166.webp"></div><div class="tx"><h3>Na cor do tempo litúrgico</h3><p>O Lume segue o calendário da Igreja no Brasil e se veste com a cor de cada dia. Toque numa cor e veja esta página fazer o mesmo.</p>
         <div class="cores" id="cores" role="group" aria-label="Cores do tempo litúrgico">
           <button class="cor" type="button" style="--c:#ECBA70" data-a="#ECBA70" data-o="#F6D6A0" data-n="A luz âmbar do Lume." aria-label="Âmbar do Lume" aria-pressed="true"></button>
           <button class="cor" type="button" style="--c:#4E7A47" data-k="verde" data-l="#4E7A47" data-a="#9DC48E" data-o="#D3E8C8" data-n="Verde: o Tempo Comum, a vida de todo dia vivida com esperança." aria-label="Verde"></button>
@@ -608,7 +620,7 @@ html.travado{overflow:hidden}
 
 <!-- Versículo -->
 <section class="versiculo" aria-label="Versículo">
-  <div class="grav" aria-hidden="true" style="--img:url(../img/gravuras/schnorr-186.webp)"></div>
+  <div class="grav" data-img="media/g/schnorr-186.webp" aria-hidden="true"></div>
   <div class="wrap rv">
     <blockquote>Vós sois a luz do mundo.</blockquote>
     <cite>Mateus 5,14</cite>
@@ -685,6 +697,25 @@ html.travado{overflow:hidden}
   </div>
 </section>
 
+<!-- Em poucas palavras -->
+<section class="sec" id="sobre" aria-labelledby="h-sobre">
+  <div class="wrap">
+    <div class="rv">
+      <span class="cap">Em poucas palavras</span>
+      <h2 class="h2" id="h-sobre">O que é o Lume</h2>
+      <p class="lead">O Lume - Regra de Vida Católica é um aplicativo de oração para católicos que querem viver a fé todos os dias, com leveza. Reúne a liturgia diária, a Bíblia, o Rosário, orações, novenas, o exame de consciência e a companhia dos santos, seguindo o calendário litúrgico da Igreja no Brasil.</p>
+    </div>
+    <dl class="fatos rv">
+      <div><dt>Para quem</dt><dd>Católicos adultos que falam português</dd></div>
+      <div><dt>Onde baixar</dt><dd>App Store, para iPhone e iPad. Android em breve no Google Play</dd></div>
+      <div><dt>Quanto custa</dt><dd>Grátis. O Lume+ é opcional: R$ 16,90 por mês ou R$ 119,90 por ano, com 7 dias grátis</dd></div>
+      <div><dt>Idioma</dt><dd>Português do Brasil, com muitas orações também em latim</dd></div>
+      <div><dt>Privacidade</dt><dd>Sem cadastro e sem anúncios. O que você escreve fica no seu celular, e este site não usa cookies nem rastreadores</dd></div>
+      <div><dt>Contato</dt><dd><a href="mailto:lumeappcatolico@gmail.com">lumeappcatolico@gmail.com</a></dd></div>
+    </dl>
+  </div>
+</section>
+
 <!-- Perguntas -->
 <section class="sec" id="perguntas" aria-labelledby="h-faq">
   <div class="wrap">
@@ -731,8 +762,8 @@ html.travado{overflow:hidden}
           <a href="https://www.tiktok.com/@lumeappcatolico" aria-label="TikTok do Lume"><svg viewBox="0 0 24 24"><path d="M16.6 5.8A4.3 4.3 0 0 1 15.5 3h-3.1v12.4a2.6 2.6 0 1 1-2.6-2.6c.3 0 .5 0 .8.1V9.7a5.7 5.7 0 1 0 4.9 5.7V9.1a7.3 7.3 0 0 0 4.3 1.4V7.4a4.3 4.3 0 0 1-3.2-1.6z"/></svg></a>
         </div>
       </div>
-      <div><h4>Explorar</h4><ul><li><a href="#proposta">Por que o Lume</a></li><li><a href="#dia">Um dia no Lume</a></li><li><a href="#app">Dentro do app</a></li><li><a href="#lumeplus">Grátis e Lume+</a></li></ul></div>
-      <div><h4>Contato</h4><ul><li><a href="mailto:lumeappcatolico@gmail.com">lumeappcatolico@gmail.com</a></li><li><a href="../privacidade/">Política de privacidade</a></li><li><a href="#perguntas">Perguntas frequentes</a></li></ul></div>
+      <div><h3 class="h-rod">Explorar</h3><ul><li><a href="#proposta">Por que o Lume</a></li><li><a href="#dia">Um dia no Lume</a></li><li><a href="#app">Dentro do app</a></li><li><a href="#lumeplus">Grátis e Lume+</a></li></ul></div>
+      <div><h3 class="h-rod">Contato</h3><ul><li><a href="mailto:lumeappcatolico@gmail.com">lumeappcatolico@gmail.com</a></li><li><a href="../privacidade/">Política de privacidade</a></li><li><a href="#perguntas">Perguntas frequentes</a></li></ul></div>
     </div>
     <p class="copy">© <span id="ano">2026</span> Lume - Regra de Vida Católica</p>
   </div>
@@ -787,7 +818,7 @@ html.travado{overflow:hidden}
 
   /* Abertura: tudo aparece junto, depois que as imagens estão prontas */
   (function(){var hero=$('.hero'),feito=false;function vai(){if(feito)return;feito=true;requestAnimationFrame(function(){hero.classList.add('pronto')})}
-    var a=$('.santuario .fone img'),b=new Image();b.src='../img/gravuras/schnorr-195.webp';
+    var a=$('.santuario .fone img'),b=new Image();b.src='media/g/schnorr-195.webp';
     function pronto(i){return i.decode?i.decode().catch(function(){}):Promise.resolve()}
     Promise.all([pronto(a),pronto(b)]).then(function(){setTimeout(vai,350)});setTimeout(vai,1800)})();
 
@@ -816,7 +847,7 @@ html.travado{overflow:hidden}
   if('IntersectionObserver' in window&&!reduz){var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{rootMargin:'0px 0px -8% 0px'});$$('.rv').forEach(function(e){io.observe(e)})}else{$$('.rv').forEach(function(e){e.classList.add('in')})}
 
   /* Vídeo */
-  var vb=$('#video button');vb.addEventListener('click',function(){var v=document.createElement('video');v.src='media/manifesto.mp4';v.controls=true;v.playsInline=true;v.setAttribute('playsinline','');v.poster='media/manifesto-capa.jpg';var box=$('#video');box.innerHTML='';box.appendChild(v);v.play().catch(function(){})});
+  var vb=$('#video button');vb.addEventListener('click',function(){var v=document.createElement('video');v.innerHTML='<source src="media/manifesto.webm" type="video/webm"><source src="media/manifesto.mp4" type="video/mp4">';v.controls=true;v.playsInline=true;v.setAttribute('playsinline','');v.poster='media/manifesto-capa.webp';var box=$('#video');box.innerHTML='';box.appendChild(v);v.play().catch(function(){})});
 
   /* Lâmpada interativa */
   var frases=['A chama já está acesa, porque a graça chega primeiro. Toque nas práticas e veja a luz subir.','Um passo de cada vez. O óleo se guarda aos poucos.','Metade do caminho. A luz sobe devagar, não salta.','Quase lá. O dia já está cheio de luz.','Dia entregue a Deus. Descanse em paz.'];
@@ -830,7 +861,7 @@ html.travado{overflow:hidden}
   abas.forEach(function(a,i){var p=document.createElement('button');p.type='button';p.setAttribute('aria-label',a.querySelector('b').textContent);p.addEventListener('click',function(){mexeu=true;ir(i)});pontos.appendChild(p)});
   function ir(i){atual=(i+abas.length)%abas.length;abas.forEach(function(a,j){var s=j===atual;a.setAttribute('aria-selected',s);a.tabIndex=s?0:-1});imgs.forEach(function(m,j){m.classList.toggle('on',j===atual)});
     $$('button',pontos).forEach(function(p,j){p.setAttribute('aria-current',j===atual)});leg.textContent=abas[atual].querySelector('span').textContent;
-    var li=abas[atual].parentNode,ul=li.parentNode;if(ul.scrollWidth>ul.clientWidth)ul.scrollTo({left:li.offsetLeft-20,behavior:reduz?'auto':'smooth'})}
+    var li=abas[atual],ul=li.parentNode;if(ul.scrollWidth>ul.clientWidth)ul.scrollTo({left:li.offsetLeft-20,behavior:reduz?'auto':'smooth'})}
   abas.forEach(function(a,i){a.addEventListener('click',function(){mexeu=true;ir(i)});a.addEventListener('keydown',function(e){var k=e.key==='ArrowDown'||e.key==='ArrowRight'?1:e.key==='ArrowUp'||e.key==='ArrowLeft'?-1:0;if(k){e.preventDefault();mexeu=true;ir(i+k);abas[atual].focus()}})});
   ir(0);
   var vit=$('#vitrine'),x0=null;vit.addEventListener('touchstart',function(e){x0=e.touches[0].clientX},{passive:true});vit.addEventListener('touchend',function(e){if(x0===null)return;var dx=e.changedTouches[0].clientX-x0;if(Math.abs(dx)>40){mexeu=true;ir(atual+(dx<0?1:-1))}x0=null});
@@ -846,8 +877,11 @@ html.travado{overflow:hidden}
     nota.textContent=b.dataset.n+(b.dataset.k===nomeHoje?' É a cor de hoje.':'')})});
   /* Santos */
   var S=[['agostinho','Santo Agostinho'],['teresinha','Santa Teresinha'],['francisco_assis','São Francisco de Assis'],['sao_jose','São José'],['teresa_avila',"Santa Teresa d'Ávila"],['joao_paulo_ii','São João Paulo II'],['catarina_de_sena','Santa Catarina de Sena'],['tomas_de_aquino','São Tomás de Aquino'],['clara','Santa Clara'],['bento','São Bento'],['josefina_bakhita','Santa Josefina Bakhita'],['inacio_de_loyola','Santo Inácio de Loyola'],['pier_giorgio_frassati','São Pier Giorgio Frassati'],['maria_madalena','Santa Maria Madalena'],['joao_da_cruz','São João da Cruz'],['luzia','Santa Luzia'],['francisco_de_sales','São Francisco de Sales'],['sao_pedro','São Pedro'],['domingos','São Domingos'],['ambrosio','Santo Ambrósio']];
-  function faixa(lista,cls){var h=lista.concat(lista).map(function(s,i){return '<figure class="santo"'+(i>=lista.length?' aria-hidden="true"':'')+' style="margin:0"><div class="grav" style="--img:url(../img/gravuras/santo-'+s[0]+'.webp);--pos:center 20%"></div><b>'+s[1]+'</b></figure>'}).join('');return '<div class="faixa '+cls+'">'+h+'</div>'}
+  function faixa(lista,cls){var h=lista.concat(lista).map(function(s,i){return '<figure class="santo"'+(i>=lista.length?' aria-hidden="true"':'')+' style="margin:0"><div class="grav" data-img="media/g/santo-'+s[0]+'.webp" style="--pos:center 20%"></div><b>'+s[1]+'</b></figure>'}).join('');return '<div class="faixa '+cls+'">'+h+'</div>'}
   $('#trilho').innerHTML=faixa(S.slice(0,10),'')+faixa(S.slice(10),'volta');
+  /* Gravuras só quando chegam perto da tela */
+  var gs=$$('.grav[data-img]');function poe(g){g.style.setProperty('--img','url('+g.dataset.img+')');g.removeAttribute('data-img')}
+  if('IntersectionObserver' in window){var gio=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){poe(e.target);gio.unobserve(e.target)}})},{rootMargin:'600px 0px'});gs.forEach(function(g){gio.observe(g)})}else gs.forEach(poe);
 })();
 </script>
 </body>
